@@ -4,7 +4,7 @@
 
 ![Group 2](https://user-images.githubusercontent.com/49463954/135953438-364d1d87-72c2-44e1-a0ff-496817cc084d.png)
 ![image 386](https://user-images.githubusercontent.com/49463954/135953486-6fe5d1f7-e810-4099-b531-8b34d1167e0e.png)
-<image src = "https://user-images.githubusercontent.com/49463954/135954427-d8aae34a-5a2d-439a-922c-6755fcdae38e.gif" width="60%" height="60%">
+<image src = "https://user-images.githubusercontent.com/49463954/135954427-d8aae34a-5a2d-439a-922c-6755fcdae38e.gif" width="30%" height="30%">
 
 ### 2. L-system Ice Crystal (2021.10.05)  
 
