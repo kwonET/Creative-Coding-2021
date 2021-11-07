@@ -4,7 +4,8 @@
 <image src = "https://user-images.githubusercontent.com/49463954/140649918-71052bba-27b4-4ec0-8312-a4c59b1f90b8.png" width="50%" height="50%">
 
 ### 3. SWELL (2021.10.18, Team Project)
-- The power of parameter, gravity - to make Wind & Waves 
+- The power of parameter, gravity - to make Wind & Waves  
+    
 <image src = "https://user-images.githubusercontent.com/49463954/140649829-8b9bbe56-9364-4d5e-a680-196dafd06509.png" width="50%" height="50%"> <image src = "https://user-images.githubusercontent.com/49463954/140649843-412dbfe8-e394-4dd3-8376-c5fe1008d4df.png" width="50%" height="50%">
     
 ### 2. L-system Ice Crystal (2021.10.05)  
