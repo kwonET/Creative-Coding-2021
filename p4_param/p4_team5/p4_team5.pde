@@ -1,0 +1,212 @@
+/*
+* reference https://openprocessing.org/sketch/983605 & https://openprocessing.org/sketch/894918
+* modified by KwonBomi & Jiwoo Bae 
+* 2021.10.18
+* Creative Algorithm
+*/
+
+import controlP5.*;
+ControlP5 cp5;
+
+/*wave initial*/
+PImage img;
+int windSlide=1;
+float y;
+
+/*wind initial*/
+int n=6400; //the number of particles
+PVector[] ps = new PVector[n];
+PVector v;
+float f0,f1;
+int f0_param=1;
+int f1_param=1;
+int a=0;
+int s=2;
+ 
+void setup()
+{
+  size(1080, 700);
+  /*wave setup*/
+  y = height * .25;
+  smooth();
+  
+  /*wind setup*/
+  for (int i=0; i<n; i++) 
+    ps[i]= new PVector(random(width), random(height));
+  background(0);
+  colorMode(RGB);
+  
+  cp5 = new ControlP5(this); 
+  addSliders();
+}
+
+void draw(){
+     draw_wind();
+  if(keyCode==RIGHT){
+    draw_wave();
+    if(keyCode==LEFT){
+      draw_wind();
+    }
+  }else{
+    draw_wind();
+  }
+ }
+
+
+/*----wind lines----*/
+void draw_wave()
+{
+  OceanWave(f0_param);
+}
+
+void OceanWave(int ws){
+  fill(6,22,50,50);
+  noStroke();
+  rect(0, 0, width, height);
+  noFill();
+  
+  //down
+   for(int i = 0; i < ws*100; i+=1) { //1000
+    strokeWeight(2);
+    if (i<10){
+       stroke(255,80);
+    } else{
+      int b = int (random(1,4));
+      if (b==1){
+        stroke(255,92);
+      }else{
+        //stroke(6, 255-floor(i/ws),255,80);
+        stroke(4,49+floor(i/ws),163,93);
+      }
+    }
+    beginShape();
+    vertex(0, height); 
+    
+    for(int x = 0 ; x < width+10; x += 5) {
+      vertex(x, y+i + ( noise(x*.01, (frameCount* 0.01* ws), i*.01)*400 ) );
+    }
+    vertex(width+10, height+10); 
+    endShape();
+  }
+  
+  //up
+    for(int i = 0; i < ws*20; i+=1) {
+    strokeWeight(2);
+    if (i<10){
+       stroke(255,80);
+    } else{
+      int b = int (random(1,4));
+      if (b==1){
+        stroke(255,92);
+      }else{
+        stroke(6,49+floor(i/ws),163,80);
+      }
+    }
+    beginShape();
+    vertex(0, height); 
+    
+    for(int x = 0 ; x < width+10; x += 5) {
+      vertex(x, 310-i-y+ ( noise(x*.01, (frameCount* 0.06* ws), i*.01)*400 ) );
+    }
+    vertex(width+10, height+10); 
+    endShape();
+  }
+  
+}
+
+//void windSlider(int val){
+//  windSlide=val;
+//}
+
+
+/*-----wind lines-----*/
+
+void draw_wind() {
+  fill(255,10);
+  noStroke();
+  rect(0, 0, width, height);
+  stroke(255);//255
+  
+  fill(76,81,109,15);
+  noStroke();
+  rect(851,43,193,180);
+  
+  //ang_param(0.002);
+  //size_param(2);
+  ang_param(f0_param);
+  size_param(f1_param);
+  float f1=0.02*frameCount;
+  float f2= 0.008*frameCount;
+  for (int i=0; i<n; i++) {
+    PVector p= ps[i];
+    float ang=(noise( 0.003*p.x , 0.003*p.y + f0))*4*PI; 
+    v = new PVector(0.9*cos(ang)+ 0.57*cos(f1), sin(ang));
+    p.add(v);
+    
+    if ( random(1.0)<0.01 ||p.x<0 || p.x>width || p.y<0 || p.y>height)
+      ps[i].set(random(width), random(height)); 
+      
+    float magSq=v.magSq(); //Calculates the magnitude (length) of the vector, squared. (mag+sqrt)
+    strokeWeight(s*0.5 + 0.5/(0.004+magSq));
+    //stroke(90,102,110);
+    //if(p.y<400)
+    //  stroke(random(0,30),0,random(255));
+    //else if(p.y<800)
+      stroke(random(0,170),random(60,190),random(150,255));
+    //else
+    //  stroke(random(130,240),random(200,255),random(230,255));
+    point(p.x, p.y);
+  }
+  a+=5;
+}
+
+void ang_param(float n0){
+  f0=2*0.001*n0*frameCount; //0.002, 
+}
+void size_param(int n1){
+  s=n1;
+}
+
+void f0Slider(int val){
+  f0_param=val;
+}
+
+void f1Slider(int val){
+  f1_param=val;
+}
+
+void addSliders(){
+    cp5.addKnob("f0Slider")//change the direction, shining gets faster 
+      .setBroadcast(false)
+      .setPosition(920,75)
+      .setRadius(50)
+      .setRange(1,10)
+      .setValue(f0_param)
+      .setLabel("speed")
+      .setBroadcast(true)
+      ;    
+     
+   cp5.addSlider("f1Slider")//the frequency of shinig point
+     .setSize(20,140)
+     .setBroadcast(false)
+     .setPosition(875,55)
+     //.setRange(0.01, 0.5)
+     .setRange(1,6)
+     .setValue(f1_param)
+     .setLabel("weight")
+     .setSliderMode(Slider.FLEXIBLE)
+     .setBroadcast(true)
+     ;
+
+  //cp5.addSlider("windSlider")
+  // .setSize(20,140)
+  // .setBroadcast(false)
+  // .setPosition(100,50)
+  // //.setRange(0.01, 0.5)
+  // .setRange(1, 10)
+  // .setValue(windSlide)
+  // .setLabel("speed")
+  // .setSliderMode(Slider.FLEXIBLE)
+  // .setBroadcast(true)
+  // ;
+}
