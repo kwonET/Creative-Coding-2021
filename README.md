@@ -1,4 +1,12 @@
 # Creative Coding Archive 
+
+### 5. Emotion Circle (2021.11.16, p7)
+- generative geomatric art, with FaceOSC
+
+<image src="https://user-images.githubusercontent.com/49463954/142164049-1faa9dbf-2966-4319-b30e-320cabc8e8d7.png" width="35%" height="35%">  
+    
+<image src="https://user-images.githubusercontent.com/49463954/142165051-c074ac3a-836e-4496-a18f-ad903024e8c7.gif" width="40%" height ="40%"> <image src="https://user-images.githubusercontent.com/49463954/142162811-d832f0c3-15fe-45da-9d53-8c800ac76f84.png" width="50%" height="50%">
+
 ### 4. CO2 Viz (2021.11.02, p5)
 - Data Visualization with CO2 emission data
 <image src = "https://user-images.githubusercontent.com/49463954/140649918-71052bba-27b4-4ec0-8312-a4c59b1f90b8.png" width="50%" height="50%">
