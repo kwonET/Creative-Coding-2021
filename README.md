@@ -2,8 +2,7 @@
 ### 6. Your Root Moment (2021.12.21, final p10)
 - interactive creative coding
 - video link : https://youtu.be/_BKKel1Gi9c
-<image src="https://user-images.githubusercontent.com/49463954/149651256-254bc82a-4c89-4b6c-86f1-33cd6d2d1c1e.png" width="35%" height="35%">
-<image src="https://user-images.githubusercontent.com/49463954/149651291-4137a38f-3d63-4a68-9e52-f10f1b83f70c.png" width="35%" height="35%">
+<image src="https://user-images.githubusercontent.com/49463954/149651256-254bc82a-4c89-4b6c-86f1-33cd6d2d1c1e.png" width="45%" height="45%"> <image src="https://user-images.githubusercontent.com/49463954/149651291-4137a38f-3d63-4a68-9e52-f10f1b83f70c.png" width="45%" height="45%">
     
 ### 5. Emotion Circle (2021.11.16, p7)
 - generative geomatric art, with FaceOSC
